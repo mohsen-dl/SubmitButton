@@ -332,12 +332,13 @@ public class SubmitButton extends View {
         if (loadingAnim != null) {
             loadingAnim.cancel();
         }
-        resultAnim = new ValueAnimator().ofInt(MAX_HEIGHT, MAX_WIDTH);
+        resultAnim = new ValueAnimator().ofInt(MAX_HEIGHT, MAX_HEIGHT);
         resultAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 mWidth = (int) animation.getAnimatedValue();
-                resultPaint.setAlpha(((mWidth - mHeight) * 255) / (MAX_WIDTH - MAX_HEIGHT));
+//                resultPaint.setAlpha(((mWidth - mHeight) * 255) / (MAX_WIDTH - MAX_HEIGHT));
+                resultPaint.setAlpha(255);
                 if (mWidth == mHeight) {
                     if (isSucceed) {
                         bgPaint.setColor(succeedColor);
