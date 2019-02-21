@@ -285,7 +285,7 @@ public class SubmitButton extends View {
             @Override
             public void onAnimationEnd(Animator animation) {
                 if (isDoResult) {
-                    startResultAnim();
+                    startResultAnim(isSucceed);
                 } else {
                     startLoadingAnim();
                 }
@@ -327,12 +327,15 @@ public class SubmitButton extends View {
     /**
      * 开始结果动画
      */
-    private void startResultAnim() {
+    public void startResultAnim(boolean _isSucceed) {
         viewState = STATE_RESULT;
         if (loadingAnim != null) {
             loadingAnim.cancel();
         }
-        resultAnim = new ValueAnimator().ofInt(MAX_HEIGHT, MAX_HEIGHT);
+
+        this.isSucceed = _isSucceed;
+
+        resultAnim = new ValueAnimator().ofInt(MAX_WIDTH, MAX_HEIGHT);
         resultAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -389,7 +392,8 @@ public class SubmitButton extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
                 if (viewState == STATE_NONE) {
-                    startSubmitAnim();
+//                    startSubmitAnim();
+                    startResultAnim(true);
                 } else {
                     return true;
                 }
@@ -424,7 +428,7 @@ public class SubmitButton extends View {
         isDoResult = true;
         this.isSucceed = isSucceed;
         if (viewState == STATE_LOADING) {
-            startResultAnim();
+            startResultAnim(isSucceed);
         }
     }
 

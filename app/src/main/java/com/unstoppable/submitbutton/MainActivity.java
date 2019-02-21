@@ -79,11 +79,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.btn_succeed:
-                if (mSwitch.isChecked()) {
-                    sBtnProgress.doResult(true);
-                } else {
-                    sBtnLoading.doResult(true);
-                }
+                sBtnProgress.startResultAnim(true);
+//                if (mSwitch.isChecked()) {
+//                    sBtnProgress.doResult(true);
+//                } else {
+//                    sBtnLoading.doResult(true);
+//                }
                 break;
             case R.id.btn_failed:
                 if (mSwitch.isChecked()) {
