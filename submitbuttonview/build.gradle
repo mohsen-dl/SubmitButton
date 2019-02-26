@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -30,14 +29,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-}
-
-publish {
-    userOrg = 'unstoppable'
-    groupId = 'com.unstoppable'
-    artifactId = 'submitbutton'
-    publishVersion = '1.2.0'
-    desc = 'It\'s a submit button with a fun animation for Android.'
-    website = 'https://github.com/Someonewow/SubmitButton'
 }
 
