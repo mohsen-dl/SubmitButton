@@ -1,4 +1,4 @@
-package com.unstoppable.submitbutton;
+package com.unstoppable.submitbuttonapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
